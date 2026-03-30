@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .account-page {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+
+
+        .balanceArea {
+            background: green;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            
+            margin-bottom: 25px;
+        }
+
+        .balancelabel { 
+            font-size: 0.3; 
+            opacity: 0.9; 
+        }
+
+        .amount { 
+            font-size: 2.5; 
+            font-weight: bold; 
+            margin: 5px 0; 
+        }
+
+
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add_money {
+             background: green; 
+             color: white; 
+            }
+
+        .send_money {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            background: blue;
+            color: white;
+            text-decoration: none;
+            }
+
+        .btn-logout {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            background: red;
+            color: white;
+            text-decoration: none;
+        }
+
+        button:hover { 
+            opacity: 10;  
+        }
+
+
+
+
+        .information {
+            border-top: 1px solid white;
+            padding-top: 20px;
+        }
+
+        .infobox {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .label { 
+            color: grey; 
+            font-weight: 500; 
+        }
+
+        .value { 
+            color: grey; 
+            font-weight: bold; 
+        }
+        
+        .masked { 
+            font-family: monospace; 
+            letter-spacing: 2px; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="account-page">
+        <div class="header">
+        <h2>My Account</h2>
+        </div>
+
+        <div class="balanceArea">
+        <div class="balancelabel">Balance: </div>
+        <h1 class="amount">${{ "{:,.2f}".format(user.balance) }}</h1>
+    </div>
+
+        <div class="action">
+        <a href="/deposit" style="text-decoration: none;">
+            <button class="add_money">Deposit</button>
+        </a>
+        
+        <a href="/transfer" class="send_money button" style="text-decoration:none;">Transfer</a>
+        </div>
+
+        <div class="information">
+
+        <div class="infobox">
+            <span class="label">Account Number:</span>
+            <span class="value">{{ user.account_number }}</span>
+        </div>
+
+        <div class="infobox">
+            <span class="label">Full Name:</span>
+            <span class="value">{{ user.first_name }} {{ user.last_name }}</span>
+        </div>
+        <div class="infobox">
+            <span class="label">Phone:</span>
+            <span class="value">{{ user.phone }}</span>
+        </div>
+        <div class="infobox">
+            <span class="label">Address:</span>
+            <span class="value">{{ user.address }}</span>
+        </div>
+    </div>
+
+    <div style="text-align: right; margin-bottom: 10px;">
+    <a href="/login" class="btn-logout">Logout</a>
+</div>
+</div>
+</body>
+</html>

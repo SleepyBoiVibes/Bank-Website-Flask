@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .Deposit-page {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+
+
+        .card-info {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85;
+            color: grey;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid  lightgray;
+            border-radius: 10px;
+            box-sizing: border-box; 
+            font-size: 1;
+            transition: border-color 0.3s;
+            
+        }
+
+
+        .confirm-button {
+            width: 100%;
+            background: blue;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .header {
+            margin-top: 0;
+            font-size: 10;
+        }
+    </style>
+</head>
+<body>
+<div class="Deposit-page">
+    <div class="header">
+        <h2>Deposit Money</h2>
+    </div>
+
+    <form action="/deposit" method="POST">
+        <div class="card-info">
+            <label for="card-num">Card Number:</label>
+            <input type="text" name="card_num" id="card-num" placeholder="0000 0000 0000 0000" maxlength="19" required>
+        </div>
+    
+        <div class="card-info">
+            <label for="expiry">Expiry Date:</label>
+            <input type="text" name="expiry" id="expiry" placeholder="MM/YY" maxlength="5" required>
+        </div>
+    
+        <div class="card-info">
+            <label for="ccv">CCV:</label>
+            <input type="password" name="ccv" id="ccv" placeholder="***" maxlength="3" required>
+        </div>
+    
+        <div class="card-info">
+            <label for="amount">Deposit Amount: </label>
+            <input type="number" name="amount" id="amount" placeholder="0.00" step="0.01" min="1" required>
+        </div>
+
+        <button type="submit" class="confirm-button">Confirm Deposit</button>
+    </form>
+    
+    <div style="text-align: center; margin-top: 15px;">
+        <a href="/dashboard" style="color: grey; text-decoration: none; font-size: 0.8rem;">Cancel and Go Back</a>
+    </div>
+</div>
