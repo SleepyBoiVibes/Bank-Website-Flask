@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 import random
 from functools import wraps
-from flask import session, redirect, url_for, flash
+from flask import session, redirect
 
 app = Flask(__name__)
 
